@@ -46,7 +46,9 @@ public class ArrayList_ {
     public static void main(String[] args) {
 
         //https://www.w3resource.com/java-exercises/collection/index.php#arraylist
+    }
 
+    private static void exercise8() {
         List<Integer> numbersList = new ArrayList<Integer>();
 
         numbersList.add(2);
@@ -59,8 +61,6 @@ public class ArrayList_ {
         numbersList.add(5);
 
         System.out.print(numbersList.stream().sorted().toList().toString());
-
-
     }
 
     private static void exercise7() {
@@ -75,7 +75,7 @@ public class ArrayList_ {
 
         boolean containsRed = colors.contains("Red");
 
-        String text = containsRed ? "Contains Red": "Not Contains Red";
+        String text = containsRed ? "Contains Red" : "Not Contains Red";
 
         System.out.println(text);
     }
