@@ -46,6 +46,67 @@ public class ArrayList_ {
     public static void main(String[] args) {
 
         //https://www.w3resource.com/java-exercises/collection/index.php#arraylist
+
+        exercise12();
+
+    }
+
+    private static void exercise12() {
+        List<Integer> numbers1 = new ArrayList<>();
+
+        for (int i = 0; i <= 100; i++) {
+            numbers1.add(i);
+        }
+
+        List<Integer> portion = numbers1.subList(0, 33);
+
+        System.out.println(portion);
+    }
+
+    private static void exercise11() {
+        List<Integer> numbers1 = new ArrayList<>();
+
+        for (int i = 0; i <= 100; i++) {
+            numbers1.add(i);
+        }
+
+        System.out.println(numbers1);
+
+        Collections.reverse(numbers1);
+
+        System.out.println(numbers1);
+    }
+
+    private static void exercise10() {
+        List<Integer> numbers1 = new ArrayList<>();
+
+        for (int i = 0; i <= 100; i++) {
+            numbers1.add(i);
+        }
+
+        System.out.println(numbers1);
+
+        //! Embaralhar os items
+        Collections.shuffle(numbers1);
+
+        System.out.println(numbers1);
+    }
+
+    private static void exercise9() {
+        List<Integer> numbers1 = new ArrayList<>();
+        List<Integer> numbers2 = new ArrayList<>();
+        numbers1.add(1);
+        numbers1.add(2);
+        numbers1.add(3);
+
+        numbers2.add(4);
+        numbers2.add(5);
+        numbers2.add(6);
+
+        Collections.copy(numbers1, numbers2);
+
+        System.out.println(numbers1);
+        System.out.println(numbers2);
     }
 
     private static void exercise8() {
