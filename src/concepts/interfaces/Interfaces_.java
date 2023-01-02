@@ -19,6 +19,20 @@ import java.util.Scanner;
  * deve cumprir
  */
 
+/**
+ * Inversão de Controle: Padrão de desenvolvimento
+ * que consiste em retirar da classe a responsabilidade
+ * de instanciar sua dependências
+ *
+ * Injeção de dependência: É uma forma de realizar a inversão
+ * de controle, onde um componente externo instancia a dependência,
+ * que é então injetada no objeto "pai". Pode ser implementada de
+ * várias formas:
+ *   -> Construtor
+ *   -> Classe de instanciação (builder/factory)
+ *   -> Container / framework
+ */
+
 public class Interfaces_ {
 
     public static void main(String[] args) {
