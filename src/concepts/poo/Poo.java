@@ -23,10 +23,31 @@ import concepts.poo.entities.SavingsAccount;
  * -> Palavra instanceof
  * -> Uso comum: Métodos que recebem parâmetros genéricos (ex: Equals)
  */
+
+/**
+ * Palavra Chave: final
+ *  Em classes evita que a classe seja herdada
+ *  Em métodos evita que o método seja sobreposto
+ *  O uso do final gera uma maior performance na execução
+ *  dos métodos e classes, a análise é mais rápida
+ */
+
+/**
+ * Classes abstratas
+ * São classes que não podem ser instanciadas
+ * É uma forma de garantir herança total: somente subclasses
+ * não abstratas podem ser instanciadas, mas nunca a
+ * superclasse abstrata
+ */
 public class Poo {
 
     public static void main(String[] args) {
 
+        
+
+    }
+
+    private static void castings() {
         Account account = new Account(1001, "Lucas Peixoto", 0.0);
         BusinessAccount businessAccount = new BusinessAccount(
                 1002,
@@ -55,6 +76,5 @@ public class Poo {
             BusinessAccount account5 = (BusinessAccount)account3;
             account5.loan(100.0);
         }
-
     }
 }

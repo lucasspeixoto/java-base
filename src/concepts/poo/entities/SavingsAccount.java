@@ -1,6 +1,6 @@
 package concepts.poo.entities;
 
-public class SavingsAccount extends Account {
+public final class SavingsAccount extends Account {
 
     private Double interestRate;
 
@@ -25,4 +25,8 @@ public class SavingsAccount extends Account {
         this.balance += this.balance * this.interestRate;
     }
 
+    @Override
+    public void withdraw(double amount) {
+        this.balance -= amount;
+    }
 }
