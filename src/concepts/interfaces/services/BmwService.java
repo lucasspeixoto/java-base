@@ -1,6 +1,6 @@
 package concepts.interfaces.services;
 
-public class PaypalService implements OnlinePaymentFee {
+public class BmwService implements OnlineInsuranceFee {
 
     private static final double MONTHLY_INTEREST = 0.01;
     private static final double FEE_PERCENTAGE = 0.02;

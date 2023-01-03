@@ -3,7 +3,7 @@ package concepts.interfaces.entities;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Installment {
+public class Insurance {
 
     private static final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -11,11 +11,7 @@ public class Installment {
 
     private Double amount;
 
-    public Installment() {
-
-    }
-
-    public Installment(LocalDate dueDate, Double amount) {
+    public Insurance(LocalDate dueDate, Double amount) {
         this.dueDate = dueDate;
         this.amount = amount;
     }

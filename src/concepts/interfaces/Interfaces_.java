@@ -1,11 +1,9 @@
 package concepts.interfaces;
 
-import concepts.interfaces.entities.CarRental;
-import concepts.interfaces.entities.Invoice;
-import concepts.interfaces.entities.Vehicle;
-import concepts.interfaces.services.BrazilTaxService;
-import concepts.interfaces.services.RentalService;
+import concepts.interfaces.entities.*;
+import concepts.interfaces.services.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -23,20 +21,56 @@ import java.util.Scanner;
  * Inversão de Controle: Padrão de desenvolvimento
  * que consiste em retirar da classe a responsabilidade
  * de instanciar sua dependências
- *
+ * <p>
  * Injeção de dependência: É uma forma de realizar a inversão
  * de controle, onde um componente externo instancia a dependência,
  * que é então injetada no objeto "pai". Pode ser implementada de
  * várias formas:
- *   -> Construtor
- *   -> Classe de instanciação (builder/factory)
- *   -> Container / framework
+ * -> Construtor
+ * -> Classe de instanciação (builder/factory)
+ * -> Container / framework
  */
 
 public class Interfaces_ {
 
     public static void main(String[] args) {
 
+        insuranceExercise();
+
+    }
+
+    private static void insuranceExercise() {
+        Locale.setDefault(Locale.US);
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Entre com os dados da compra do carro:");
+
+        System.out.print("Marca: ");
+        String carBrand = sc.nextLine();
+
+        System.out.print("Ano da compra: ");
+        Integer yearOfPurchase = sc.nextInt();
+
+        System.out.print("Valor de Mercado: ");
+        Integer carValue = sc.nextInt();
+
+        CarInsurance carInsurance = new CarInsurance(carBrand, yearOfPurchase, carValue);
+
+        InsuranceService insuranceService = new InsuranceService(new BmwService());
+
+        insuranceService.processInsurance(carInsurance);
+
+        System.out.println("Parcelas Seguro (Anual): ");
+
+        for (Insurance insurance : carInsurance.getInsurances()) {
+            System.out.println(insurance);
+        }
+
+        sc.close();
+    }
+
+    private static void paypalExercise() {
         Locale.setDefault(Locale.US);
 
         Scanner sc = new Scanner(System.in);
@@ -44,23 +78,32 @@ public class Interfaces_ {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         System.out.println("Entre com os dados do contrato:");
+
         System.out.print("Número: ");
-        String contractNumber = sc.nextLine();
+        Integer contractNumber = sc.nextInt();
 
         System.out.print("Data (dd/MM/yyyy): ");
-        LocalDateTime start = LocalDateTime.parse(sc.nextLine(), fmt);
+        LocalDate dueDate = LocalDate.parse(sc.next(), fmt);
 
         System.out.print("Valor do contrato (R$): ");
         Double contractValue = sc.nextDouble();
 
+        Contract contract = new Contract(contractNumber, dueDate, contractValue);
+
         System.out.print("Quantidade de parcelas: ");
-        int installments = sc.nextInt();
+        int months = sc.nextInt();
 
+        ContractService contractService = new ContractService(new PaypalService());
 
+        contractService.processContract(contract, months);
 
+        System.out.println("Parcelas:");
+
+        for (Installment installment : contract.getInstallments()) {
+            System.out.println(installment);
+        }
 
         sc.close();
-
     }
 
     private static void carRentalExercise() {
