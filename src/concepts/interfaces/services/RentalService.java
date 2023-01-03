@@ -7,10 +7,10 @@ import java.time.Duration;
 
 public class RentalService {
 
-    private Double pricePerDay;
-    private Double pricePerHour;
+    private final Double pricePerDay;
+    private final Double pricePerHour;
 
-    private TaxService taxService;
+    private final TaxService taxService;
 
     public RentalService(
             Double pricePerDay,

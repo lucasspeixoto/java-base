@@ -41,6 +41,33 @@ public class Interfaces_ {
 
         Scanner sc = new Scanner(System.in);
 
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        System.out.println("Entre com os dados do contrato:");
+        System.out.print("Número: ");
+        String contractNumber = sc.nextLine();
+
+        System.out.print("Data (dd/MM/yyyy): ");
+        LocalDateTime start = LocalDateTime.parse(sc.nextLine(), fmt);
+
+        System.out.print("Valor do contrato (R$): ");
+        Double contractValue = sc.nextDouble();
+
+        System.out.print("Quantidade de parcelas: ");
+        int installments = sc.nextInt();
+
+
+
+
+        sc.close();
+
+    }
+
+    private static void carRentalExercise() {
+        Locale.setDefault(Locale.US);
+
+        Scanner sc = new Scanner(System.in);
+
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
         System.out.println("Entre com os dados do aluguel:");
@@ -76,6 +103,5 @@ public class Interfaces_ {
         System.out.println("Pagamento Total: " + String.format("%.2f", invoice.getTotalPayment()));
 
         sc.close();
-
     }
 }
