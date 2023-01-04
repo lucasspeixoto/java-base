@@ -31,6 +31,13 @@ import java.util.Scanner;
  * -> Container / framework
  */
 
+/**
+ * Interface x Herança
+ *  Herança: Reuso
+ *  Interface: Contrato ser cumprido
+ *
+ */
+
 public class Interfaces_ {
 
     public static void main(String[] args) {
