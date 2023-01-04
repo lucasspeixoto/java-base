@@ -33,7 +33,7 @@ import java.util.Scanner;
 
 /**
  * Interface x Herança
- *  Herança: Reuso
+ *  Herança: Reuso de informações e funcionalidades
  *  Interface: Contrato ser cumprido
  *
  */

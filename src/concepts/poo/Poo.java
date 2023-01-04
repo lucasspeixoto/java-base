@@ -38,6 +38,7 @@ import concepts.poo.enums.Color;
  * não abstratas podem ser instanciadas, mas nunca a
  * superclasse abstrata
  */
+
 public class Poo {
 
     public static void main(String[] args) {
