@@ -30,6 +30,29 @@ public class Program {
 
     public static void main(String[] args) {
 
+        /**
+         * hasCode e equals: Operações da classe Object
+         * utilizadas para comparar se um objeto é igual a outro.
+         *
+         * equals: lento e resposta 100%
+         * hasCode: rápido, porém resposta positiva não é 100%
+         *
+         *  Se dois objetos possuem diferentes hasCode, com certeza
+         *  eles são diferentes, se possuem o mesmo hasCode, são iguas
+         *  porem pode haver colisão
+         */
+        String a = "Lucas";
+        String b = "Liana";
+
+        System.out.println(b.equals(a));
+        System.out.print(a.hashCode());
+        System.out.println("");
+        System.out.print(b.hashCode());
+
+
+    }
+
+    private static void exemploCuringaDelimitados() {
         List<Integer> myInts = Arrays.asList(1, 2, 3, 4);
         List<Double> myDoubles = Arrays.asList(3.14, 6.28);
         List<Object> myObjs = new ArrayList<Object>();
@@ -38,15 +61,11 @@ public class Program {
         printList(myObjs);
         copy(myDoubles, myObjs);
         printList(myObjs);
-
     }
 
     private static void copy(List<? extends Number> source, List<? super Number> destiny) {
-        for (Number number : source) {
-            destiny.add(number);
-        }
+        destiny.addAll(source);
     }
-
 
     private static void principioGetPutContravariancia() {
         //! Contravariância: get não permitido e put permitido
