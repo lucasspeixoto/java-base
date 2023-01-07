@@ -1,5 +1,7 @@
 package concepts.generics_sets_maps.entities;
 
+import java.util.Objects;
+
 /**
  * Set<Product> set = new TreeSet<>(): Quando utilizamos TreeSet
  * nossa classe do conjunto tem que ter a implementação do
@@ -43,5 +45,17 @@ public class Product implements Comparable<Product> {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product product)) return false;
+        return getName().equals(product.getName()) && getPrice().equals(product.getPrice());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPrice());
     }
 }

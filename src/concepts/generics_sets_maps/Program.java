@@ -26,6 +26,56 @@ import java.util.*;
  * Em alguns casos podem reutilizar metodos de serviços
  * com um tipo Object, porem ele vai exigir casting de
  * tipos em determinadas situações, diferente do Generics
+ * <p>
+ * Set<T>
+ * Representa um conjunto de elementos (similar ao da Álgebra)
+ * - Não admite repetições
+ * - Elementos Não possuem posição
+ * - Acesso, inserção e remoção de elementos são rápidas
+ * - Principais implementações:
+ * -> HasSet: Não mantem a ordem de inserção
+ * -> TreeSet
+ * -> LinkedHasSet: Mantem a ordem de inserção
+ * <p>
+ * Set<T>
+ * Representa um conjunto de elementos (similar ao da Álgebra)
+ * - Não admite repetições
+ * - Elementos Não possuem posição
+ * - Acesso, inserção e remoção de elementos são rápidas
+ * - Principais implementações:
+ * -> HasSet: Não mantem a ordem de inserção
+ * -> TreeSet
+ * -> LinkedHasSet: Mantem a ordem de inserção
+ * <p>
+ * Set<T>
+ * Representa um conjunto de elementos (similar ao da Álgebra)
+ * - Não admite repetições
+ * - Elementos Não possuem posição
+ * - Acesso, inserção e remoção de elementos são rápidas
+ * - Principais implementações:
+ * -> HasSet: Não mantem a ordem de inserção
+ * -> TreeSet
+ * -> LinkedHasSet: Mantem a ordem de inserção
+ * <p>
+ * Set<T>
+ * Representa um conjunto de elementos (similar ao da Álgebra)
+ * - Não admite repetições
+ * - Elementos Não possuem posição
+ * - Acesso, inserção e remoção de elementos são rápidas
+ * - Principais implementações:
+ * -> HasSet: Não mantem a ordem de inserção
+ * -> TreeSet
+ * -> LinkedHasSet: Mantem a ordem de inserção
+ * <p>
+ * Set<T>
+ * Representa um conjunto de elementos (similar ao da Álgebra)
+ * - Não admite repetições
+ * - Elementos Não possuem posição
+ * - Acesso, inserção e remoção de elementos são rápidas
+ * - Principais implementações:
+ * -> HasSet: Não mantem a ordem de inserção
+ * -> TreeSet
+ * -> LinkedHasSet: Mantem a ordem de inserção
  */
 
 /**
@@ -60,6 +110,61 @@ public class Program {
 
     public static void main(String[] args) {
 
+        Locale.setDefault(Locale.US);
+
+        Map<String, Integer> candidates = new HashMap<>();
+        String path = "C:\\temp\\in.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] splitedLine = line.split(",");
+                String candidateName = splitedLine[0];
+                Integer candidateVotes = Integer.parseInt(splitedLine[1]);
+
+                if (candidates.containsKey(candidateName)) {
+                    Integer totalInstantVotes = candidateVotes + candidates.get(candidateName);
+                    candidates.put(candidateName, totalInstantVotes);
+                } else {
+                    candidates.put(candidateName, candidateVotes);
+                }
+
+                line = br.readLine();
+            }
+
+            for (String name : candidates.keySet()) {
+                System.out.println(name + ": " + candidates.get(name));
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+
+    private static void mapWithCustomKey() {
+        Map<Product, Double> cookies = new HashMap<>();
+
+        Product p1 = new Product("Tv", 1400.0);
+        Product p2 = new Product("Notebook", 5700.0);
+        Product p3 = new Product("Tablet", 4500.0);
+
+        cookies.put(p1, 10000.0);
+        cookies.put(p2, 20000.0);
+        cookies.put(p3, 15000.0);
+
+        Product ps = new Product("Tv", 1400.0);
+
+        /**
+         * Se o objeto da chave, no caso Product, não possuir
+         * os métodos hasCode e equals, se vai verificar pela referência
+         * de ponteiros, que no caso, ps tem uma referencias diferente
+         * do produto Yv adicionado antes
+         */
+        System.out.println("Contains 'ps' key: " + cookies.containsKey(ps));
+    }
+
+    private static void mapBasics() {
         Map<String, String> cookies = new TreeMap<>();
 
         cookies.put("username", "Lucas");
@@ -68,10 +173,13 @@ public class Program {
 
         cookies.remove("email");
 
-        for (String key: cookies.keySet()) {
+        cookies.put("phone", "19981448980");
+
+        System.out.println("Contains phone: " + cookies.containsKey("phone"));
+
+        for (String key : cookies.keySet()) {
             System.out.println(key + ": " + cookies.get(key));
         }
-
     }
 
     private static void studentsExecise() {
