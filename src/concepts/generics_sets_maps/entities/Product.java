@@ -1,5 +1,11 @@
 package concepts.generics_sets_maps.entities;
 
+/**
+ * Set<Product> set = new TreeSet<>(): Quando utilizamos TreeSet
+ * nossa classe do conjunto tem que ter a implementação do
+ * Comparable: implements Comparable<Product>
+ */
+
 public class Product implements Comparable<Product> {
 
     private String name;
@@ -27,12 +33,15 @@ public class Product implements Comparable<Product> {
     }
 
     @Override
-    public String toString() {
-        return this.name + ", R$" + String.format("%.2f", price);
+    public int compareTo(Product other) {
+        return name.toUpperCase().compareTo(other.getName().toUpperCase());
     }
 
     @Override
-    public int compareTo(Product other) {
-        return this.price.compareTo(other.getPrice());
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

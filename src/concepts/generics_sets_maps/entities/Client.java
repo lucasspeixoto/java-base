@@ -1,5 +1,7 @@
 package concepts.generics_sets_maps.entities;
 
+import java.util.Objects;
+
 public class Client {
 
     private String name;
@@ -26,5 +28,15 @@ public class Client {
         this.email = email;
     }
 
-    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client client)) return false;
+        return getName().equals(client.getName()) && getEmail().equals(client.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getEmail());
+    }
 }
