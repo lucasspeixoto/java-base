@@ -52,7 +52,7 @@ import java.util.*;
  * superclasse abstrata
  */
 
-public class Poo {
+public class Program {
 
     public static void main(String[] args) {
 
